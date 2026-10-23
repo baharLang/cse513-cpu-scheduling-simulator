@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CPU Scheduling Simulator | Version 1.0.0 | Example input workload -->
+<workload name="Workload A">
+    <process id="P1" arrival="0" burst="8" />
+    <process id="P2" arrival="1" burst="4" />
+    <process id="P3" arrival="2" burst="2" />
+    <process id="P4" arrival="4" burst="1" />
+</workload>

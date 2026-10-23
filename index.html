@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- CPU Scheduling Simulator | Version 1.0.0 | Main application page -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CPU Scheduling Simulator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Application layout: workload input, algorithm controls and simulation output. -->
+  <main class="container">
+    <header>
+      <span class="eyebrow">CSE513 / OPERATING SYSTEMS LAB</span>
+      <h1>CPU Scheduling Simulator</h1>
+      <p>FCFS · SJF · SRTF · Round Robin</p>
+    </header>
+
+    <!-- Process input and scheduling configuration. -->
+    <section class="panel">
+      <div class="section-header">
+        <h2>01 / Process setup</h2>
+
+        <div class="file-loader">
+          <label for="xml-file">Import workload · XML</label>
+
+          <div class="file-loader-controls">
+          <input
+            id="xml-file"
+            type="file"
+            accept=".xml,application/xml,text/xml"
+            aria-describedby="file-help"
+          >
+
+          <button id="load-xml" type="button">
+            Load XML
+          </button>
+        </div>
+
+  <span id="file-help">
+    Browse for an XML file, then click Load XML.
+  </span>
+</div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Process ID</th>
+              <th>Arrival time</th>
+              <th>CPU burst</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="process-body"></tbody>
+        </table>
+      </div>
+
+      <button id="add-process" class="add-button" type="button">
+        + Add process
+      </button>
+
+      <div class="controls">
+        <label>
+          Scheduling algorithm
+          <select id="algorithm">
+            <option value="FCFS">First-Come, First-Served</option>
+            <option value="SJF">Shortest Job First</option>
+            <option value="SRTF">Shortest Remaining Time First</option>
+            <option value="RR">Round Robin</option>
+          </select>
+        </label>
+
+        <label>
+          Time quantum
+          <input
+            id="quantum"
+            type="number"
+            min="1"
+            step="1"
+            value="2"
+            disabled
+          >
+        </label>
+
+        <button id="run" class="primary-button" type="button">
+          Run simulation →
+        </button>
+      </div>
+
+      <p id="error" class="error" role="alert" hidden></p>
+    </section>
+
+    <!-- Results stay hidden until a simulation completes successfully. -->
+    <div id="results" hidden>
+      <section class="panel">
+        <div class="section-header">
+          <h2>02 / CPU timeline</h2>
+          <span id="run-description"></span>
+        </div>
+
+        <div class="gantt-wrapper">
+          <div id="gantt" class="gantt"></div>
+        </div>
+
+        <p class="hint">
+          Time units · Gray blocks indicate CPU idle intervals.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>03 / Process results</h2>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Process</th>
+                <th>Arrival</th>
+                <th>CPU burst</th>
+                <th>First start</th>
+                <th>Completion</th>
+                <th>Turnaround</th>
+                <th>Waiting</th>
+                <th>Response</th>
+              </tr>
+            </thead>
+            <tbody id="result-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="averages" aria-label="Average times">
+        <div class="metric">
+          <span>Average turnaround time</span>
+          <strong id="avg-turnaround"></strong>
+        </div>
+
+        <div class="metric">
+          <span>Average waiting time</span>
+          <strong id="avg-waiting"></strong>
+        </div>
+
+        <div class="metric">
+          <span>Average response time</span>
+          <strong id="avg-response"></strong>
+        </div>
+      </section>
+    </div>
+
+    <p id="status" class="hint" role="status"></p>
+  </main>
+</body>
+</html>
