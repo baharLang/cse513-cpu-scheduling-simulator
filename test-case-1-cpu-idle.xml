@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="Test Case 1 - CPU Idle Time">
+    <process id="P1" arrival="2" burst="3" />
+    <process id="P2" arrival="7" burst="4" />
+    <process id="P3" arrival="12" burst="2" />
+</workload>

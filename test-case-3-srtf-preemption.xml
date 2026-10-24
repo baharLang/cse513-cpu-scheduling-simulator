@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="Test Case 3 - SRTF Preemption">
+    <process id="P1" arrival="0" burst="10" />
+    <process id="P2" arrival="3" burst="4" />
+    <process id="P3" arrival="5" burst="2" />
+    <process id="P4" arrival="6" burst="1" />
+</workload>

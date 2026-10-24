@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="Test Case 2 - Simultaneous Arrivals and Tie-Breaking">
+    <process id="P1" arrival="0" burst="6" />
+    <process id="P2" arrival="0" burst="3" />
+    <process id="P3" arrival="0" burst="3" />
+    <process id="P4" arrival="2" burst="2" />
+</workload>
